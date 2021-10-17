@@ -1,47 +1,44 @@
 import React, {useState} from 'react';
-import CartWidjet from './CartWidjet';
-import { MdViewDay } from "react-icons/md";
+import CartWidjet from '../CartWidjet/CartWidjet';
 import { IoIosSearch } from "react-icons/io";
 import logo from "../../imagenes/logo.svg"
+import { Nav, Navbar,  } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container'
 
 
 
-
-const Navbar = () =>{
+const Menu = () =>{
 
     const[showLinks, setShowLinks] = useState(false);
 
     return(
       <>
-        <div className ="NavBar">
-          
-          <div className ="leftSide"> 
-                <img src={logo} alt="logo" />
-                <div className="links" id={showLinks ? "hidden" : ""}>
-                  <a href="#home" class="active"> Home </a>
-                  <a href="#zapatillas"> Zapatillas </a> 
-                  <a href="#indumentaria"> Indumentaria </a> 
-                  <a href="#accesorios"> Accesotrios </a> 
-                  <a href="#contacto"> Contacto </a>
-                </div>  
-                <button onClick={() => setShowLinks(!showLinks)} className="burgerMenu"><MdViewDay/></button>
-          </div> 
-          <div className ="rightSide">
 
-            <input type="text" placeholder="Buscar..."/> 
-            <button> <IoIosSearch/> </button>
-            <CartWidjet/>
-          
+<Navbar collapseOnSelect expand="md" className="menu">
+  <Container fluid>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+      <img src={logo} alt="logo" />
+        <Nav className="me-auto">
+          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="#features">Zapatillaas</Nav.Link>
+          <Nav.Link href="#pricing">Indumentaria</Nav.Link>
+          <Nav.Link href="#pricing">Accesorios</Nav.Link>
+          <Nav.Link href="#pricing">Contacto</Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+      <input type="text" placeholder="Buscar..."/> 
+      <button> <IoIosSearch/> </button>
+      <CartWidjet/>
+      
+  </Container>
+</Navbar>
 
-          </div>   
+</>  
 
-            
-            
-        </div>
-      </>  
     )
 }
 
 
-export default Navbar;
- 
+export default Menu;
+

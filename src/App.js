@@ -1,17 +1,20 @@
 
 import './sass/App.scss';
-import "./sass/NavBar.scss"
-import Navbar from '../src/components/NavBar/NavBar';
-import { MensajeBienvenida } from './components/NavBar/ItemListContainer';
-
+import "./sass/NavBar.scss";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from './components/NavBar/NavBar';
+import { MensajeBienvenida } from "./containers/ItemListContainer/ItemListContainer"
+import SliderPrincipal from './components/SliderPrincipal/SliderPrincipal';
+import { ItemCount } from './components/ItemCount/ItemCount';
 
 function App() {
   return (
     <>
-      <div className="App">
+      <div className="App container-fluid">
           <Navbar />
-          <MensajeBienvenida text="Bienvenidos, en este sitio encontraras lo mejor para el handball" />
           
+          <MensajeBienvenida text="Bienvenidos, en este sitio encontraras lo mejor para el handball" />
+          <ItemCount />
       </div>
     </>
   );
