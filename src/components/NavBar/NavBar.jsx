@@ -9,12 +9,12 @@ import Container from 'react-bootstrap/Container'
 
 const Menu = () =>{
 
-    const[showLinks, setShowLinks] = useState(false);
+    
 
     return(
       <>
 
-<Navbar collapseOnSelect expand="md" className="menu">
+<Navbar collapseOnSelect expand="md">
   <Container fluid>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">

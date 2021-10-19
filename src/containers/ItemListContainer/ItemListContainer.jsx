@@ -1,8 +1,15 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
+import ItemList from '../../components/ItemList/ItemList';
 
-export const MensajeBienvenida = (props) =>{
+export const ItemListContainer = (props) =>{
     return(
-        <h1> {props.text} </h1>
+        <> 
+        <Container>
+            <h1> {props.text} </h1>
+            <ItemList />
+        </Container>
+       </> 
     )
 }
 

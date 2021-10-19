@@ -3,19 +3,21 @@ import './sass/App.scss';
 import "./sass/NavBar.scss";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/NavBar/NavBar';
-import { MensajeBienvenida } from "./containers/ItemListContainer/ItemListContainer"
+import { ItemListContainer } from "./containers/ItemListContainer/ItemListContainer"
 import SliderPrincipal from './components/SliderPrincipal/SliderPrincipal';
-import { ItemCount } from './components/ItemCount/ItemCount';
+import { Container } from 'react-bootstrap';
+
 
 function App() {
   return (
     <>
-      <div className="App container-fluid">
+      <Container fluid>
           <Navbar />
+          <SliderPrincipal />
+          <ItemListContainer text="Bienvenidos, en este sitio encontraras lo mejor para el handball" />
           
-          <MensajeBienvenida text="Bienvenidos, en este sitio encontraras lo mejor para el handball" />
-          <ItemCount />
-      </div>
+          
+      </Container>
     </>
   );
 }
