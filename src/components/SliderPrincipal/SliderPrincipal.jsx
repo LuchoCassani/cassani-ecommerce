@@ -7,10 +7,8 @@ import Carousel from 'react-bootstrap/Carousel'
 
 
 const SliderPrincipal = ( ) =>{
-
     return(
         <>
-        
             <Carousel>
                 <Carousel.Item>
                     <img
@@ -48,16 +46,9 @@ const SliderPrincipal = ( ) =>{
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
-        
-
-
         </>  
     )
 
 }
-
-
-
-
 
 export default SliderPrincipal;

@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/NavBar/NavBar';
 import { ItemListContainer } from "./containers/ItemListContainer/ItemListContainer"
 import SliderPrincipal from './components/SliderPrincipal/SliderPrincipal';
-import { Container } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 
 
 function App() {
@@ -15,8 +15,6 @@ function App() {
           <Navbar />
           <SliderPrincipal />
           <ItemListContainer text="Bienvenidos, en este sitio encontraras lo mejor para el handball" />
-          
-          
       </Container>
     </>
   );
