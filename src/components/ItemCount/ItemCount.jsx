@@ -16,6 +16,7 @@ export const ItemCount = (props) =>{
     function substract (){
         if (count > 1){
             setCount(count - 1)
+
         }
     }
     return(

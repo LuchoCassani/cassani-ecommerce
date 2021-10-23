@@ -6,10 +6,10 @@ export const ItemListContainer = (props) =>{
     
     return(
         <> 
-        <Container fluid>
-            <h1> {props.text} </h1>
+        <div >
+            <h1 className="d-flex justify-content-center"> {props.text} </h1>
             <ItemList />
-        </Container>
+        </div>
         </> 
     )
 }

@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
-import CartWidjet from '../CartWidjet/CartWidjet';
-import { IoIosSearch } from "react-icons/io";
 import logo from "../../imagenes/logo.svg"
-import { Nav, Navbar,  } from 'react-bootstrap';
+import { Nav, Navbar, Form, FormControl, Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container'
 
 
@@ -10,26 +8,41 @@ import Container from 'react-bootstrap/Container'
 const Menu = () =>{
     return(
       <>
-  <Navbar collapseOnSelect expand="md">
-    <Container fluid>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-        <img src={logo} alt="logo" />
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Zapatillaas</Nav.Link>
-            <Nav.Link href="#pricing">Indumentaria</Nav.Link>
-            <Nav.Link href="#pricing">Accesorios</Nav.Link>
-            <Nav.Link href="#pricing">Contacto</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-        <input type="text" placeholder="Buscar..."/> 
-        <button> <IoIosSearch/> </button>
-        <CartWidjet/>
-        
-    </Container>
-  </Navbar>
-</>  
+        <Navbar expand="lg">
+          <Container fluid >
+          <Navbar.Brand href="#home">
+          <img
+            src={logo}
+            alt="React Bootstrap logo"
+          />
+          </Navbar.Brand>
+            <Navbar.Toggle aria-controls="navbarScroll" />
+            <Navbar.Collapse className="justify-content-around" id="navbarScroll">
+              <Nav
+                className=" nav.links d-flex justify-content-center"
+                style={{ maxHeight: '100%' }}
+                navbarScroll>
+                <Nav.Link className="m-4" href="#action1">Home</Nav.Link>
+                <Nav.Link className="m-4"  href="#action2">Zapatillas</Nav.Link>
+                <Nav.Link className="m-4" href="#action2">Indumentaria</Nav.Link>
+                <Nav.Link className="m-4" href="#action2">Accesorios</Nav.Link>
+                <Nav.Link className="m-4" href="#action2">Contacto</Nav.Link>
+              </Nav>
+              </Navbar.Collapse>
+              <Form className="d-flex">
+                <FormControl
+                  type="search"
+                  placeholder="Search"
+                  className="me-2"
+                  aria-label="Search"
+                />
+                <Button className="me-4" variant="outline-success">Search</Button>
+              </Form>
+            
+          </Container>
+        </Navbar>
+  
+      </>  
 
     )
 }

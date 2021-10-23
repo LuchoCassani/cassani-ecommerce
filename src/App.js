@@ -14,7 +14,7 @@ function App() {
       <Container fluid>
           <Navbar />
           <SliderPrincipal />
-          <ItemListContainer text="Bienvenidos, en este sitio encontraras lo mejor para el handball" />
+          <ItemListContainer text="Encontra lo que buscas" />
       </Container>
     </>
   );

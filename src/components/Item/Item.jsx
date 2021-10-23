@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
+import "../../sass/boton-card.scss"
+import "../../sass/PresentacionItem.scss"
 import { ItemCount } from '../ItemCount/ItemCount'
 
 
@@ -9,19 +9,23 @@ export default function Item({producto}) {
 
     return (
         <> 
-            <Container fluid>
-                <Row key={producto.id}>
-                    <Card style={{ width: "18rem"}}>
-                        <Card.Img variant="top" src={producto.url} />
+            <div className=" container-fluid d-flex justify-content-center">
+                <div key={producto.id}>
+                    <div className="card animate__animated animate__flipInY" style={{ width: "20rem"}}>
+                        <div className="overflow">
+                            <Card.Img variant="top" src={producto.url} />
+                        </div>
                         <Card.Body>
                             <Card.Title>{producto.nombre}</Card.Title>
-                            <Card.Title>$ {producto.precio}</Card.Title>
-                            <Card.Title>{producto.descripcion}</Card.Title>
+                            <Card.Text>{producto.descripcion}</Card.Text>
+                            <Card.Link href={producto.pagina}>
+                                <button className="btn-card"><span className="btn-text">Ver Mas!</span></button>
+                            </Card.Link>
                         </Card.Body>
                         <ItemCount />
-                    </Card>
-                </Row>
-            </Container>
+                    </div>
+                </div>
+            </div>
 
         </> 
     )
