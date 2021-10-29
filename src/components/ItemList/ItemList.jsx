@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Item from '../Item/Item'
+
 import "../../sass/PresentacionList.scss"
 
 
@@ -45,9 +46,14 @@ import "../../sass/PresentacionList.scss"
         }, [])
 
     return (
+
+    <>    
         <div className="container-fluid d-flex justify-content-center col items">
             {cargando ? <h2>Cargando productos....</h2> : productos.map((producto)=><Item producto={producto} />)}
 
         </div>
+        
+
+    </>      
     )
  }

@@ -1,7 +1,7 @@
 .navbar{
   background-color: #2c3d6f;
   font-size: 2rem;
-  color: white;
+  
 
   
 
@@ -13,6 +13,10 @@
 
   }
 }
-.navbar-light .navbar-nav .nav-link {
+.navbar-light .navbar-nav a.nav-link  {
   color: white;
+}
+
+.navbar-light .navbar-nav a.nav-link:hover  {
+  color: red;
 }
