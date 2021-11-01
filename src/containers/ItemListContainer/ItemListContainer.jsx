@@ -1,14 +1,20 @@
 import React from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { useParams } from 'react-router';
 import ItemList from '../../components/ItemList/ItemList';
 
-export const ItemListContainer = (props) =>{
+export const ItemListContainer = () =>{
+    
+    
+
+  
+;
     
     return(
         <> 
-        <div >
-            <h1 className="d-flex justify-content-center"> {props.text} </h1>
+        <div>
+            <h1 className="d-flex justify-content-center"> Soy la categoria </h1>
             <ItemList />
+            
         </div>
         </> 
     )

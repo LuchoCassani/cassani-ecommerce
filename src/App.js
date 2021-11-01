@@ -1,17 +1,13 @@
 import React from 'react';
-import { BrowserRouter , Switch, Route, } from 'react-router-dom';
+import { BrowserRouter , Switch, Route, Redirect } from 'react-router-dom';
 import './sass/App.scss';
 import "./sass/NavBar.scss";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/NavBar/NavBar';
 import { ItemListContainer } from "./containers/ItemListContainer/ItemListContainer"
 import SliderPrincipal from './components/SliderPrincipal/SliderPrincipal';
+import Zapatillas from './components/Zapatillas/Zapatillas';
 
-import Zapatillas from "./pages/Zapatillas"
-import Indumentaria from "./pages/Indumentaria"
-import Carrito from "./pages/Carrito"
-import Contacto from "./pages/Contacto"
-import Accesorios from "./pages/Accesorios"
 
 
 
@@ -19,41 +15,28 @@ function App() {
   return (
 
     <>
+    <BrowserRouter>
     <Navbar />
     <SliderPrincipal />
-    <BrowserRouter>
       <Switch>
-          <Route  path="/" exact>
-            
-              <ItemListContainer text="Encontra lo que buscas" />
-            
-          </Route>   
-          <Route path="./pages/Zapatillas" exact>
-            
-                <Zapatillas />
-             
-          </Route>   
-          <Route  path="./pages/Indumentaria" exact>
-            
-              <Indumentaria />
-            
-          </Route> 
-          <Route  path="./pages/Accesorios" exact>
-            
-              <Accesorios />
-            
-          </Route>    
-          <Route  path="./pages/Carrito" exact>
-            
-              <Carrito />
-            
-          </Route>   
-          <Route  path="./pages/Contacto" exact>
-            
-              <Contacto />
-            
-        </Route>  
-      </Switch>  
+        <Route exact path='/' >
+          <ItemListContainer /> 
+        </Route>
+        <Route exact path='/category/Zapatillas' >
+          
+          
+          <Zapatillas />
+          
+        </Route>
+        <Route exact path='/category/Indumentaria' >  
+        <h1>chau</h1>   
+        </Route>
+        <Route exact path='/category/Accesorios' >     
+        </Route>
+        <Route exact path='/category/Contacto' >    
+        </Route>
+        <Redirect to ="/" />
+      </Switch>
     </BrowserRouter>
 
 

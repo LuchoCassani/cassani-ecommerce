@@ -3,7 +3,7 @@ import Item from '../Item/Item'
 
 import "../../sass/PresentacionList.scss"
 
-
+    
     const datos =[
         {
         id: "1",    
@@ -32,6 +32,8 @@ import "../../sass/PresentacionList.scss"
 
         const[productos,setProductos] = useState([])
         const [cargando,setCargando] = useState(true)
+
+
 
         useEffect(() => {
             const seteando = new Promise((res,rej) =>{

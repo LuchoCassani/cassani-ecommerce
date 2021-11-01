@@ -1,12 +1,17 @@
-import React from 'react'
+import React, {useParams} from 'react'
 import Card from 'react-bootstrap/Card'
-import ItemDetailContainer from '../../containers/ItemDetailContainer/ItemDetailContainer'
+import { Link } from 'react-router-dom'
+
 import "../../sass/boton-card.scss"
 import "../../sass/PresentacionItem.scss"
 import { ItemCount } from '../ItemCount/ItemCount'
+import Zapatillas from '../Zapatillas/Zapatillas'
 
 
 export default function Item({producto}) {
+
+    
+
 
     return (
         <> 
@@ -19,10 +24,10 @@ export default function Item({producto}) {
                         <Card.Body>
                             <Card.Title>{producto.nombre}</Card.Title>
                             <Card.Text>{producto.descripcion}</Card.Text>
-                            <Card.Link href={producto.pagina}>
-                                <button className="btn-card" onClick={ItemDetailContainer}><span className="btn-text">Ver Mas!</span></button>
+                            <Card.Link href= "/Category/Zapatillas">
+                                <Link className="btn-card" to={`/category/Zapatillas`}><span className="btn-text">Ver Mas!</span></Link>
                             </Card.Link>
-                        </Card.Body>
+                        </Card.Body> 
                         <ItemCount />
                     </div>
                 </div>

@@ -1,40 +1,43 @@
-import React from 'react'
-import Modal from 'react-bootstrap/Modal'
-
-import Button from 'react-bootstrap/Button'
-
-
+import React, {useEffect, useState} from 'react'
+import { Col, Container, Row } from 'react-bootstrap'
+import ItemDetail from "../../components/ItemDEetail/ItemDetail"
+import { Productos } from '../../components/json_/Productos'
 
 
 
-export default function ItemDetailContainer({datos2}) {
 
+export default function ItemDetailContainer() {
 
+    const [zapatillas, setZapatillas] = useState (null)
+    const [cargando,setCargando] = useState(true)
+
+    useEffect(() => {
+        const seteando = new Promise((res,rej) =>{
+            setTimeout(()=>{ 
+                res(Productos)
+            },2000)
+        })
+        seteando.then((data)=>{
+            setZapatillas(data)
+            setCargando(false)
+        })
+    }, [])
 
 
 
     return (
-        <div>
-            <> 
-            <Modal className=" container-fluid d-flex justify-content-center">
-                <div key={datos2.id}>
-                    
-                        
-                            
-                       
-                        <Modal.Body>
-                            <h4>{datos2.nombre}</h4>
-                            <p>{datos2.descripcion}</p>
-                            <p>{datos2.precio}</p>
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <Button onClick={datos2.onHide}>Close</Button>
-                        </Modal.Footer>
-                    </div>
-                
-            </Modal>
+       
+        <div> 
 
-        </> 
-        </div>
+            <div>
+                <div >
+                    {cargando ? <h2>Cargando productos....</h2> : <ItemDetail producto={zapatillas} />}
+                </div>
+            </div>
+
+           
+
+        </div> 
+        
     )
 }
