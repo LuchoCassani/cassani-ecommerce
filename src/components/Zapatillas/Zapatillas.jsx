@@ -1,5 +1,6 @@
 import React from 'react'
-import ItemDetailContainer from "../../containers/ItemDetailContainer/ItemDetailContainer"
+import ItemDetailContainer from '../../containers/ItemDetailContainer/ItemDetailContainer'
+
 
 
 export default function Zapatillas() {

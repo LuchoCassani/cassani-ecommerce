@@ -1,7 +1,4 @@
 
-export  const Productos =
-
-
 [
     {
     
@@ -137,7 +134,7 @@ export  const Productos =
     },
     {
         "id": 14,
-    "title": "kMunich Attack",
+    "title": "Munich Attack",
     "categoria": "zapatilla",
     "marca": "munich",
     "descripcion":"Munich sale al mercado con otra zapatilla innovadora para jugadores/as. Las nuevas attack son una mezcla de ligereza y confort para que tu rendimiento sea máximo.",
@@ -153,6 +150,36 @@ export  const Productos =
     "descripcion":"Munich ha decidido ser la marca referente por lo que a porteria de Balonmano se refiere. Por eso han sacado este nuevo modelo: Munich Arquero con TALÓN DESLIZANTE. Esta zapatilla es más ligera y menos reforzada que la Munich Goalkeeper pero su precio la hace muy competitiva.",
     "precio": 500,
     "imagen1": "https://www.handbolaunpas.com/1964-home_default/munich-arquero-c-talon.jpg"
+         
+    },
+    {
+        "id": 16,
+    "title": "RFEBM Oficial Selección Española Hombre",
+    "categoria": "indumentaria",
+    "marca": "joma",
+    "descripcion":"RFEBM Camiseta Selección Española 21/22 - Camiseta Balonmano.",
+    "precio": 500,
+    "imagen1": "https://www.handbolaunpas.com/1862-home_default/rfebm-oficial-seleccion-espanola-hombre.jpg"
+         
+    },
+    {
+        "id": 17,
+    "title": "FFHB Oficial Selección Francesa 2021",
+    "categoria": "indumentaria",
+    "marca": "adidas",
+    "descripcion":"Domina a tus rivales y rinde homenaje a la selección francesa de balonmano con esta camiseta para hombre. Presenta un diseño concebido para ofrecerte mayor agilidad en la cancha y cuenta con inserciones laterales de malla que favorecen la ventilación y te mantienen fresco.",
+    "precio": 500,
+    "imagen1": "https://www.handbolaunpas.com/1823-home_default/ffhb-oficial-seleccion-francesa-2021.jpg"
+         
+    },
+    {
+        "id": 18,
+    "title": "DHB Oficial Selección Alemana 2021",
+    "categoria": "indumentaria",
+    "marca": "puma",
+    "descripcion":"Camiseta de Balonmano Puma oficial de la selección Alemana. Temporada 2021 100% poliéster.",
+    "precio": 500,
+    "imagen1": "https://www.handbolaunpas.com/1787-home_default/dhb-oficial-seleccion-alemana-2021.jpg"
          
     }
 

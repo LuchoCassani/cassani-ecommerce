@@ -6,7 +6,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/NavBar/NavBar';
 import { ItemListContainer } from "./containers/ItemListContainer/ItemListContainer"
 import SliderPrincipal from './components/SliderPrincipal/SliderPrincipal';
+
 import Zapatillas from './components/Zapatillas/Zapatillas';
+
+
 
 
 
@@ -22,18 +25,17 @@ function App() {
         <Route exact path='/' >
           <ItemListContainer /> 
         </Route>
-        <Route exact path='/category/Zapatillas' >
-          
-          
+        <Route exact path='/category/:category' >
           <Zapatillas />
-          
         </Route>
-        <Route exact path='/category/Indumentaria' >  
-        <h1>chau</h1>   
+        <Route exact path='/category/:category' >  
+           
         </Route>
-        <Route exact path='/category/Accesorios' >     
+        <Route exact path='/category/:category' >   
+             
         </Route>
-        <Route exact path='/category/Contacto' >    
+        <Route exact path='/category/:category' >    
+            
         </Route>
         <Redirect to ="/" />
       </Switch>

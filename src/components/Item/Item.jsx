@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom'
 import "../../sass/boton-card.scss"
 import "../../sass/PresentacionItem.scss"
 import { ItemCount } from '../ItemCount/ItemCount'
-import Zapatillas from '../Zapatillas/Zapatillas'
+
 
 
 export default function Item({producto}) {
-
+    
     
 
 
@@ -25,7 +25,7 @@ export default function Item({producto}) {
                             <Card.Title>{producto.nombre}</Card.Title>
                             <Card.Text>{producto.descripcion}</Card.Text>
                             <Card.Link href= "/Category/Zapatillas">
-                                <Link className="btn-card" to={`/category/Zapatillas`}><span className="btn-text">Ver Mas!</span></Link>
+                                <Link className="btn-card" to={`/category/zapatillas`}><span className="btn-text">Ver Mas!</span></Link>
                             </Card.Link>
                         </Card.Body> 
                         <ItemCount />

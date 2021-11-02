@@ -12,11 +12,10 @@ export const ItemListContainer = () =>{
     return(
         <> 
         <div>
-            <h1 className="d-flex justify-content-center"> Soy la categoria </h1>
+            <h1 className="d-flex justify-content-center"> HOME </h1>
             <ItemList />
             
         </div>
         </> 
     )
 }
-
