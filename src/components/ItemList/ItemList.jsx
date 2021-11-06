@@ -21,7 +21,7 @@ import "../../sass/PresentacionList.scss"
     },
     {
         id: "3",
-        nombre: "Pelotas y accesorios",
+        nombre: "Accesorios",
         pagina: "#accesorios",
         descripcion: "Todo para que tu experiencia sea de otro nivel. ",
         url: "https://media.handball-store.es/catalog/product/cache/image/573x/9df78eab33525d08d6e5fb8d27136e95/r/e/replica_lnh_21_22_t3.png" ,

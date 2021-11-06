@@ -1,62 +1,58 @@
 import React, { useEffect, useState } from 'react'
-
-import Productos from "../json_/Productos.json"
-
-import "../../sass/ItemDetail.scss"
+import { Link, useParams } from 'react-router-dom'
 import { ItemCount } from '../ItemCount/ItemCount'
+import Productos from "../json_/Productos"
+
 
 function ItemDetail() {
-    const [masInfo, setMasInfo] = useState(true)
-    const handleClick = () => {
-        setMasInfo(!masInfo);
-      };
-    const zapatillas = Productos.filter( productos=> productos.categoria === "zapatilla")
     
-    const [productos, setProductos] = useState ([])
-    const [cargando, setCargando] = useState (true)
+    
+    //const {category} = useParams()
+    const [zapas,setZapas ] = useState (null)
+    const [cargando,setCargando] = useState(true)
+    
+    
+    
+   
+        useEffect(() => {
+            const zapas = Productos.find((elemento) => 
+                elemento.categoria === "zapatilla"
+            )
 
+            const seteando = new Promise((res,rej) =>{
+                setTimeout(()=>{ 
+                    res(zapas)
+                },3000)
+            })
+            seteando.then((data)=>{
+                setZapas(data)
+                setCargando(false)
+            })
+        }, [])
+   
+    
+  
 
-      useEffect(() => {
-          const setenando =new Promise ((res,rej) =>{
-              setTimeout(() =>{
-                  res(zapatillas)
-              }, 2000)
-          })
-          setenando.then((zapatillas)=>{
-          setProductos(zapatillas)
-          setCargando(false)
-        })
-          
-      }, [zapatillas])
-
+console.log(zapas)
 
 
     return (
         <>
-            <div className="cardProducts container">
-                {cargando? <h2>Cargando productos....</h2> :
-            
-                zapatillas.map((zapatillas) => (
+            { cargando? <h2>Cargando productos....</h2> :
+           
+            <div className="card" style={{width: '18rem'}}>
+                <img src={zapas.imagen1} className="card-img-top" alt="..." />
+                <div className="card-body">
+                    <h5 className="card-title">{zapas.title}</h5>   
+                    <p>{zapas.descripcion}</p>
+                    <p>${zapas.precio}</p>                
+                    <ItemCount />
                     
-                    
-                        
-                            <div className="card" key={zapatillas.id} style={{width: '17rem',height: 'auto'}}>
-                            <img src={zapatillas.imagen1} className="card-img-top" alt="..." />
-                            <div className="card-body">
-                            <h5 className="card-title">{zapatillas.title}</h5>
-                            <button onClick={handleClick}> Mas Info</button>
-                            {  masInfo?    <p className="card-text">{zapatillas.descripcion}</p> : null      }
-                            {  masInfo?    <p className="card-text">{zapatillas.precio}</p> : null      }
-                            {  masInfo?    <ItemCount /> : null      }
-                            </div>
-                        </div>
-                    
+                </div>
+            </div> 
+            }
 
-                )) 
-            
-             }
-       
-        </div>
+
         </>
         
             

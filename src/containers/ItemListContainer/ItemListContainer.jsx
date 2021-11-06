@@ -1,21 +1,15 @@
-import React from 'react';
-import { useParams } from 'react-router';
-import ItemList from '../../components/ItemList/ItemList';
+import React from "react";
 
-export const ItemListContainer = () =>{
-    
-    
+import ItemList from "../../components/ItemList/ItemList";
 
-  
-;
-    
-    return(
-        <> 
-        <div>
-            <h1 className="d-flex justify-content-center"> HOME </h1>
-            <ItemList />
-            
-        </div>
-        </> 
-    )
-}
+export const ItemListContainer = () => {
+  return (
+    <>
+      <div>
+        <h1 className="d-flex justify-content-center"> HOME </h1>
+
+        <ItemList />
+      </div>
+    </>
+  );
+};
