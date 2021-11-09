@@ -5,12 +5,12 @@ import "../node_modules/font-awesome/css/font-awesome.min.css"
 import '../src/sass/App.scss';
 import "animate.css/animate.min.css"
 import App from './App';
-
+import { BrowserRouter} from 'react-router-dom';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <BrowserRouter>
     <App />
-  </React.StrictMode>,
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
