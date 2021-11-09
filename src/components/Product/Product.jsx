@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import Puff from "react-loading-icons/dist/components/puff";
-
+import { ItemCount } from '../ItemCount/ItemCount'
 
 const  Product = () => {
     const {id} = useParams();
@@ -52,6 +52,7 @@ const  Product = () => {
           </p>
           <h3 className>$ {product.price}</h3>
           <p className="lead">{product.description}</p>
+          <ItemCount />
         </div>
       </>
     );

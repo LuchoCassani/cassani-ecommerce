@@ -24,7 +24,7 @@ export const ItemCount = (props) =>{
             <Container >        
                 <Button variant="danger" onClick ={substract}> - </Button>
                 <Button variant="success" onClick ={add}> + </Button>
-                <h3>Agregar al carrito {count}</h3>
+                <h3>Agregar al carrito {count} unidades</h3>
             </Container >
         </>
     )
