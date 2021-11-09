@@ -7,10 +7,11 @@ import {  NavLink} from 'react-router-dom';
 
 
 
-export default function Products() {
+export default function Products(product) {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
   const [loading, setLoading] = useState(false);
+  
   let componentMounted = true;
 
   useEffect(() => {
