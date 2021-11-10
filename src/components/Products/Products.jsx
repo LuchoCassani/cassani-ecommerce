@@ -54,7 +54,7 @@ export default function Products(product) {
   const ShowProducts = () => {
     return (
       <>
-        <div className="buttons d-flex justify-content-center mb-5 pb-5">
+        <div className="buttons d-flex justify-content-center mb-5 pb-5" key={product.id}>
           <button className="btn btn-outline-dark me-2" onClick={() => setFilter(data)} >Todos nuestros productos</button>
           <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("zapatilla")} >Zapatillas</button>
           <button className="btn btn-outline-dark me-2"onClick={() => filterProduct("indumentaria")} >Indumentaria</button>

@@ -4,9 +4,7 @@ import "./sass/App.scss";
 import "./sass/NavBar.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/NavBar/NavBar";
-
 import { CartContext } from "./components/Context/CartContext";
-
 import Home from "./components/Home/Home";
 import Products from "./components/Products/Products";
 import Product from "./components/Product/Product";

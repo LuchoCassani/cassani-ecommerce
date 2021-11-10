@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from "react";
+import {useDispatch } from "react-redux";
+import { AddCart, DelCart } from "../../redux/action/Index";
 import { useParams } from "react-router";
 import Puff from "react-loading-icons/dist/components/puff";
-import { ItemCount } from '../ItemCount/ItemCount'
+import { NavLink } from "react-router-dom";
+
 
 const  Product = () => {
     const {id} = useParams();
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(false);
+
+    const dispatch = useDispatch();
+    const addProduct = (product) => {
+      dispatch(AddCart(product))
+    }
+    const delProduct = (product) => {
+      dispatch(DelCart(product))
+    }
 
     useEffect(() => {
         const getProduct = async () => {
@@ -18,7 +29,7 @@ const  Product = () => {
               }, 2000);
         }
         getProduct();
-    }, []);
+    }, [id]);
 
   const Loading = () => {
     return (
@@ -52,7 +63,16 @@ const  Product = () => {
           </p>
           <h3 className>$ {product.price}</h3>
           <p className="lead">{product.description}</p>
-          <ItemCount />
+          <button className="btn btn-outline-dark px-4 py-2" onClick={()=>addProduct(product)}>
+                        Agregar al carrito
+          </button>
+          <button className="btn btn-outline-dark px-4 py-2" onClick={()=>delProduct(product)}>
+                        Eliminar del carrito
+          </button>
+          <NavLink to="/cart" className="btn btn-dark ms-2 px-3 py-2">
+                        Ir al carrito
+          </NavLink>
+          
         </div>
       </>
     );

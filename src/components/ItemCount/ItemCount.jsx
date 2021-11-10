@@ -1,32 +1,28 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useReducer } from 'react';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import { Container } from 'react-bootstrap';
+import {useDispatch } from "react-redux";
+import { AddCart } from "../../redux/action/Index";
+import Product from '../Product/Product';
 
 
 
-export const ItemCount = (props) =>{
-    const [count, setCount]=useState(1);
-    function add(){
-        if (count >= 1 & count <5){
-            setCount(count+1)
-        }
+/* export const ItemCount = (product) =>{
+
+    const dispatch = useDispatch();
+    const addProduct = (product) => {
+      dispatch(AddCart(product))
     }
-    function substract (){
-        if (count > 1){
-            setCount(count - 1)
-
-        }
-    }
+    
     return(
         <>
             <Container >        
-                <Button variant="danger" onClick ={substract}> - </Button>
-                <Button variant="success" onClick ={add}> + </Button>
-                <h3>Agregar al carrito {count} unidades</h3>
+                <Button variant="danger" onClick ={()=> addProduct(product)}> - </Button>
+                
             </Container >
         </>
-    )
+    ) 
 
-}
+} */
