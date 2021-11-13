@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import CartContext from "../Context/CartContext";
 
 
- export const ItemCount = (product) =>{
+ export const ItemCount = ({product}) =>{
   const  {addToCart}  = useContext(CartContext);
   const { removeItems } = useContext(CartContext); 
     return(

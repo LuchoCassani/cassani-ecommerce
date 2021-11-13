@@ -2,11 +2,11 @@ import { useReducer } from "react";
 import CartContext from "./CartContext";
 import CartReducer from "./CartReducer";
 import { SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEMS,REMOVE_ONE_ITEM } from "./Types";
-import Productos from "../Productos.json"
+
 const CartState = ({ children }) => {
   const initalState = {
     showCart: false,
-    cartItems: [Productos],
+    cartItems: [],
   };
 
   const [state, dispatch] = useReducer(CartReducer, initalState);
