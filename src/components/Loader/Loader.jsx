@@ -7,13 +7,12 @@ function Loader() {
     
 
     return (
-        <div>
-            <>
-            <>
-        
-            Cargando.... <Puff stroke="#98ff98" strokeOpacity={0.125} speed={0.75} />
-        </>
-        </>
+        <div className="d-flex justify-content-center">
+            
+            Cargando.... 
+            <Puff stroke="#98ff98" strokeOpacity={0.125} speed={0.75} />
+            
+       
         </div>
     )
 }

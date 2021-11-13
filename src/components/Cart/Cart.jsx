@@ -7,6 +7,7 @@ const Cart = () => {
 
   return (
     <>
+    <h1>HOLA soy el carrito</h1>
       {showCart && (
         <div>
           <div style={{ textAlign: "right" }}>
