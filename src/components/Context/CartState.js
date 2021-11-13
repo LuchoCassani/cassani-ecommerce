@@ -13,14 +13,17 @@ const CartState = ({ children }) => {
 
   const addToCart = (product) => {
     dispatch({ type: ADD_TO_CART, payload: product });
+    console.log(addToCart)
   };
 
   const showHideCart = () => {
     dispatch({ type: SHOW_HIDE_CART });
+    console.log(showHideCart)
   };
 
   const removeItems = (id) => {
     dispatch({ type: REMOVE_ITEMS, payload: id });
+    console.log(removeItems)
   };
   const removeOneItem = (id) => {
     dispatch({ type: REMOVE_ONE_ITEM, payload: id });

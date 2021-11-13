@@ -11,6 +11,7 @@ import CartContext from "../Context/CartContext";
         <>
             <button className="btn btn-outline-dark px-4 py-2 m-2" onClick={() => addToCart(product)}>
                          Agregar al carrito
+                         
           </button>
           <button className="btn btn-outline-dark px-4 py-2 m-2" onClick={() => removeItems(product.id)}>
                         Eliminar del carrito
