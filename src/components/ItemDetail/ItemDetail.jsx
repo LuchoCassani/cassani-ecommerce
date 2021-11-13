@@ -24,7 +24,7 @@ const  ItemDetail = () => {
     return (
       <>
       
-        {loading?<Loader/>: (
+        {loading? <Loader/>: (
         <><div className="col-md-6">
             <img
               src={product.image}

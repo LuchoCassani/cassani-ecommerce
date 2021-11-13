@@ -1,12 +1,12 @@
 import { useReducer } from "react";
 import CartContext from "./CartContext";
 import CartReducer from "./CartReducer";
-import { SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEM } from "./Types";
-
+import { SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEMS,REMOVE_ONE_ITEM } from "./Types";
+import Productos from "../Productos.json"
 const CartState = ({ children }) => {
   const initalState = {
     showCart: false,
-    cartItems: [],
+    cartItems: [Productos],
   };
 
   const [state, dispatch] = useReducer(CartReducer, initalState);
@@ -19,8 +19,11 @@ const CartState = ({ children }) => {
     dispatch({ type: SHOW_HIDE_CART });
   };
 
-  const removeItem = (id) => {
-    dispatch({ type: REMOVE_ITEM, payload: id });
+  const removeItems = (id) => {
+    dispatch({ type: REMOVE_ITEMS, payload: id });
+  };
+  const removeOneItem = (id) => {
+    dispatch({ type: REMOVE_ONE_ITEM, payload: id });
   };
 
   return (
@@ -30,7 +33,8 @@ const CartState = ({ children }) => {
         cartItems: state.cartItems,
         addToCart,
         showHideCart,
-        removeItem,
+        removeItems,
+        removeOneItem
       }}
     >
       {children}
