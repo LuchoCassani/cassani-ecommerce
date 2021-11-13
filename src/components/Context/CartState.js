@@ -5,9 +5,9 @@ import { SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEMS,REMOVE_ONE_ITEM } from "./Typ
 
 const CartState = ({ children }) => {
   const initalState = {
-    showCart: false,
+    
     cartItems: [],
-  };
+  };console.log(initalState)
 
   const [state, dispatch] = useReducer(CartReducer, initalState);
 
@@ -43,6 +43,7 @@ const CartState = ({ children }) => {
       {children}
     </CartContext.Provider>
   );
+  
 };
 
 export default CartState;

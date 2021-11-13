@@ -7,11 +7,12 @@ const CartItem = ({ item }) => {
   
   return (
     <li className='CartItem__item'>
+        
       <img src={item.image} alt='' />
       <div>
         {item.name} 
       </div>
-      <button  onClick={() => removeItems(item._id)}>
+      <button  onClick={() => removeItems(item.id)}>
         Remove
       </button>
     </li>

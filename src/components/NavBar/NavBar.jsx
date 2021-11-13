@@ -55,11 +55,11 @@ const Menu = () => {
               <NavLink to="" className="btn btn-outline-dark ms-2">
                 <i className="fa fa-user-plus me-1"></i>Registrarse
               </NavLink>
-              <button className="btn btn-outline-dark ms-2 bg-light">
-                          <i onClick={showHideCart} className="fa fa-shopping-cart me-1 "> </i>Carrito {cartItems.length > 0 && (
+              <NavLink to="/cart" className="btn btn-outline-dark ms-2 bg-light">
+                          <i className="fa fa-shopping-cart me-1 "> </i>Carrito {cartItems.length > 0 && (
                             <span>{cartItems.length}</span>
                           )} 
-                </button>
+                </NavLink>
             </div>
           </div>
         </div>
