@@ -1,61 +1,100 @@
-import React, {useState, useEffect} from 'react'
-import Item from '../Item/Item'
-
-import "../../sass/PresentacionList.scss"
-
-    
-    const datos =[
-        {
-        id: "1",    
-        nombre: "Zapatillas",
-        pagina: "#zapatillas",
-        descripcion: "Encontra las mejores zapatillas que tanto buscas",
-        url: "https://www.handbolaunpas.com/1892-large_default/adidas-stabil-next-gen-primeblue.jpg" ,
-    },
-    {
-        id: "2",
-        nombre: "Indumentaria",
-        pagina: "#indumentaria",
-        descripcion: "Camisetas, remeras de entrenamiento y mucho mas.",
-        url: "https://www.handbolaunpas.com/1823-large_default/ffhb-oficial-seleccion-francesa-2021.jpg" ,
-    },
-    {
-        id: "3",
-        nombre: "Accesorios",
-        pagina: "#accesorios",
-        descripcion: "Todo para que tu experiencia sea de otro nivel. ",
-        url: "https://media.handball-store.es/catalog/product/cache/image/573x/9df78eab33525d08d6e5fb8d27136e95/r/e/replica_lnh_21_22_t3.png" ,
-    }
-    ]
-
-    export default function ItemList() {
-
-        const[productos,setProductos] = useState([])
-        const [cargando,setCargando] = useState(true)
+import React, { useState, useEffect } from "react";
+import Puff from "react-loading-icons/dist/components/puff";
+import {  NavLink, } from 'react-router-dom';
 
 
+export default function ItemList(product) {
 
-        useEffect(() => {
-            const seteando = new Promise((res,rej) =>{
-                setTimeout(()=>{ 
-                    res(datos)
-                },3000)
-            })
-            seteando.then((data)=>{
-                setProductos(data)
-                setCargando(false)
-            })
-        }, [])
+  const [data, setData] = useState([]);
+  const [filter, setFilter] = useState(data);
+  const [loading, setLoading] = useState(false);
+  
+  let componentMounted = true;
 
-    return (
-
-    <>    
-        <div className="container-fluid d-flex justify-content-center col items">
-            {cargando ? <h2>Cargando productos....</h2> : productos.map((producto)=><Item producto={producto} />)}
-
-        </div>
+  useEffect(() => {
+    const getProducts = async () => {
+      setLoading(true);
+      const response = await fetch('Productos.json');
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+      if (componentMounted) {
+        setData(await response.clone().json());
+        setFilter(await response.json());
         
+        
+        
+      }
+      return () => {
+        componentMounted = false;
+      };
+    };
+    getProducts();
+  }, []);
 
-    </>      
-    )
- }
+  const Loading = () => {
+    return (
+      <>
+   
+        Cargando....
+        <Puff stroke="#98ff98" strokeOpacity={0.125} speed={0.75} />
+      </>
+    );
+  };
+  const filterProduct = (category) => {
+    const updatedList = data.filter((x) => x.category === category)
+    setFilter(updatedList)
+  } 
+
+
+
+  const ShowProducts = () => {
+    return (
+      <>
+        <div className="buttons d-flex justify-content-center mb-5 pb-5" key={product.id}>
+          <button className="btn btn-outline-dark me-2" onClick={() => setFilter(data)} >Todos nuestros productos</button>
+          <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("men's clothing")} >Zapatillas</button>
+          <button className="btn btn-outline-dark me-2"onClick={() => filterProduct("jewelery")} >Indumentaria</button>
+          <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("electronics")} >Accesorios</button>
+          <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("women's clothing")} >ropa mujer</button>
+        </div>
+        {filter.map((product) => {
+          return (
+            <>
+              <div key={product.id} className="col-md-3 mb-4">
+                <div className="card h-100 text-center p-4 key={product.id">
+                  <img src={product.imagen1} className="card-img-top" alt={product.title} height="280rem" />
+                  <div className="card-body">
+                    <h5 className="card-title mb-0">{product.title}</h5>
+                    <p className="card-text lead fw-bold">
+                     ${product.precio}
+                    </p>
+                    <NavLink to={`/products/${product.id}`} className="btn btn-outline-dark">
+                      Comprar
+                    </NavLink>
+                  </div>
+                </div>
+              </div>
+            </>
+          );
+        })}
+      </>
+    );
+  };
+
+  return (
+    <div>
+      <div className="container my-5 py-5">
+        <div className="row">
+          <div className="col-12 mb-5">
+            <h1 className="display-6 fw-bolder text-center">Todos nuestros productos</h1>
+            <hr />
+          </div>
+        </div>
+        <div className="row justify-content-center">
+          {loading ? <Loading /> : <ShowProducts />}
+        </div>
+      </div>
+    </div>
+  );
+}

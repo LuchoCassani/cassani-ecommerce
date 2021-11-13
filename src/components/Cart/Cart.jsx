@@ -1,82 +1,37 @@
-import React from 'react'
-import {useSelector, useDispatch} from 'react-redux'
-import { NavLink } from 'react-router-dom';
-import { AddCart, DelCart } from '../redux/action/Index.jsx';
+import { useContext } from "react";
+import CartContext from "../Context/CartContext";
+import ItemDetail from "../ItemDetail/ItemDetail";
 
-function Cart() {
-    
-    
-    
-    const state = useSelector((state)=> state.handleCart)
-    const dispatch = useDispatch()
+const Cart = () => {
+  const { showCart, cartItems, showHideCart } = useContext(CartContext);
 
-    const handleAdd = (item) => {
-        dispatch(AddCart(item))
-    }
-    const handleDel = (item) => {
-        dispatch(DelCart(item))
-    }
-
-    const emptyCart = () => {
-        return(
-            <div className="px-4 my-5 bg-light rounded-3 py-5">
-                <div className="container py-4">
-                    <div className="row">
-                        <h3>Your Cart is Empty</h3>
-                    </div>
-                </div>
-            </div>
-        )
-    }
-    const cartItems = (product) => {
-        return(
-            <>
-                <div className="px-4 my-5 bg-light rounded-3 py-5">
-                <div className="container py-4">
-                    <div className="row justify-content-center">
-                        <div className="col-md-4">
-                            <img src={product.imagen1} alt={product.title} height="200px" width="180px" />
-                        </div>
-                        <div className="col-md-4">
-                            <h3>{product.title}</h3>
-                            <p className="lead fw-bold">
-                                {product.q} X ${product.precio} = ${product.q * product.price}
-                            </p>
-                            <button className="btn btn-outline-dark me-4" onClick={()=>handleDel(product)}>
-                                <i className="fa fa-minus"></i>
-                            </button>
-                            <button className="btn btn-outline-dark" onClick={()=> handleAdd(product)}>
-                                <i className="fa fa-plus"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </>
-        )
-
-    }
-    const buttons = () => {
-        return(
-            <>
-                <div className="container">
-                    <div className="row">
-                        <NavLink to="/checkout" className="btn btn-outline-dark mb-5 w-25 mx-auto">
-                            Proceed to Checkout
-                        </NavLink>
-                    </div>
-                </div>
-            </>
-        )
-    }
-
-    return (
+  return (
+    <>
+      {showCart && (
         <div>
-            {state.length === 0 && emptyCart()}
-            {state.length !== 0 && state.map(cartItems)}
-            {state.length !== 0 && buttons()}
+          <div style={{ textAlign: "right" }}>
+            <i
+              style={{ cursor: "pointer" }}
+              className="fa fa-times-circle"
+              aria-hidden="true"
+              onClick={showHideCart}
+            ></i>
+          </div>
+          <div>
+            {cartItems.length === 0 ? (
+              <h4>Cart is Empty</h4>
+            ) : (
+              <ul>
+                {cartItems.map((product) => (
+                  <ItemDetail key={product.id} item={product} />
+                ))}
+              </ul>
+            )} 
+          </div>
         </div>
-    );
-}
+      )}
+    </>
+  );
+};
 
-export default Cart
+export default Cart;

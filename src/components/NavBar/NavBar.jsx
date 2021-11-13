@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import CartContext from "../Context/CartContext";
+
 
 
 const Menu = () => {
-  const state = useSelector ((state) => state.HandleCart)
+  const {cartItems, showHideCart} = useContext(CartContext)
+ 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-black py-3 shadow-sm" >
         <div className="container">
           <NavLink className="navbar-brand fw-bold fs-4" to="/">
             40x20 Handball-Store
@@ -53,9 +55,14 @@ const Menu = () => {
               <NavLink to="" className="btn btn-outline-dark ms-2">
                 <i className="fa fa-user-plus me-1"></i>Registrarse
               </NavLink>
-              <NavLink to="/Cart" className="btn btn-outline-dark ms-2">
-                <i className="fa fa-shopping-cart me-1"></i>Carrito ({state.length})
-              </NavLink>
+              <div to="/cart" className="btn btn-outline-dark ms-2 bg-light">
+
+                <i onClick={showHideCart} className="fa fa-shopping-cart me-1 "> </i>Carrito {cartItems.length > 0 && (
+                  <span>{cartItems.length}</span>
+                )} 
+            
+            </div>
+            
             </div>
           </div>
         </div>

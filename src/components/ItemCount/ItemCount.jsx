@@ -1,28 +1,25 @@
 import React from 'react';
-import { useState, useReducer } from 'react';
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import { Container } from 'react-bootstrap';
-import {useDispatch } from "react-redux";
-import { AddCart } from "../../redux/action/Index";
-import Product from '../Product/Product';
+import {useContext  } from 'react';
+import { NavLink } from 'react-router-dom';
+import CartContext from "../Context/CartContext";
 
 
-
-/* export const ItemCount = (product) =>{
-
-    const dispatch = useDispatch();
-    const addProduct = (product) => {
-      dispatch(AddCart(product))
-    }
-    
+ export const ItemCount = (product) =>{
+  const  {addToCart}  = useContext(CartContext);
+  const { removeItem } = useContext(CartContext); 
     return(
         <>
-            <Container >        
-                <Button variant="danger" onClick ={()=> addProduct(product)}> - </Button>
-                
-            </Container >
+            <button className="btn btn-outline-dark px-4 py-2 m-2" onClick={() => addToCart(product)}>
+                         Agregar al carrito
+          </button>
+          <button className="btn btn-outline-dark px-4 py-2 m-2" onClick={() => removeItem(product.id)}>
+                        Eliminar del carrito
+          </button>
+          <NavLink to="/cart" className="btn btn-outline-dark px-4 py-2 m-2">
+                        Ir al carrito
+          </NavLink>
+          
         </>
     ) 
 
-} */
+} 
