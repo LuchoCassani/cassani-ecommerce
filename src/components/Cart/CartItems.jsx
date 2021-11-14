@@ -3,18 +3,19 @@ import CartContext from "../Context/CartContext";
 
 
 const CartItem = ({ item }) => {
-  const { removeItems } = useContext(CartContext);
+  const { removeItems, addToCart } = useContext(CartContext);
   
   return (
-    <li className='CartItem__item'>
+    <li >
         
       <img src={item.image} alt='' />
       <div>
         {item.name} 
       </div>
       <button  onClick={() => removeItems(item.id)}>
-        Remove
+        Remover del carrito
       </button>
+     
     </li>
   );
 };

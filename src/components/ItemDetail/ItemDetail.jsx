@@ -2,13 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import {ItemCount} from "../ItemCount/ItemCount"
 import Loader from "../Loader/Loader";
-import CartContext from "../Context/CartContext";
-import { useContext } from "react";
+
 
 
 const ItemDetail = () => {
-  const { addToCart } = useContext(CartContext);
-  const { removeItems } = useContext(CartContext);
+ 
 
   const { id } = useParams();
   const [product, setProducto] = useState(null);

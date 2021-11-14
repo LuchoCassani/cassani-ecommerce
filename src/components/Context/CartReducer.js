@@ -1,23 +1,20 @@
-import { SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEMS, REMOVE_ONE_ITEM } from "./Types";
+import {  ADD_TO_CART, REMOVE_ITEMS, REMOVE_ONE_ITEM } from "./Types";
 
+const initialState = {count:0}
 const CartReducer = (state, action) => {
   switch (action.type) {
-    case SHOW_HIDE_CART: {
-      return {
-        ...state,
-        showCart: !state.showCart,
-      };
-    }
+    
     case ADD_TO_CART: {
       return {
         ...state,
-        cartItems: [...state.cartItems, action.payload],
+        cartItems: [{count: state.count + 1}],
       };
     }
     case REMOVE_ONE_ITEM: {
       return {
         ...state,
-        cartItems: [...state.cartItems, action.payload],
+        cartItems: [{count: state.count - 1}],
+       
       };
     }
     case REMOVE_ITEMS: {
