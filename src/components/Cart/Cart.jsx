@@ -12,10 +12,8 @@ const Cart = () => {
     
       {!showCart && (
         <div>
-          <div style={{ textAlign: "right" }}>
-            
-          </div>
-          <div>
+          
+          <div className="container-fluid justify-content-center">
             {cartItems.length === 0 ? (
               <h4>Oops parece que aun no agregaste nada😂</h4>
             ) : (
@@ -23,7 +21,7 @@ const Cart = () => {
                 {cartItems.map((product) => (
                   <CartItems key={product.id} item={product} />
                 ))}
-                <ItemCount />
+                
               </ul>
             )} 
           </div>

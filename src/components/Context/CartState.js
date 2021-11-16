@@ -11,16 +11,14 @@ const CartState = ({ children }) => {
 
   const [state, dispatch] = useReducer(CartReducer, initalState);
 
-  const addToCart = (product) => {
-    dispatch({ type: ADD_TO_CART, payload: product });
-    console.log(addToCart)
+  const addToCart = (item) => {
+    dispatch({ type: ADD_TO_CART, payload: item });
   };
 
   
 
   const removeItems = (id) => {
     dispatch({ type: REMOVE_ITEMS, payload: id });
-    console.log(removeItems)
   };
   const removeOneItem = (id) => {
     dispatch({ type: REMOVE_ONE_ITEM, payload: id });

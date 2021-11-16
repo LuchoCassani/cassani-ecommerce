@@ -5,7 +5,7 @@ import CartContext from "../Context/CartContext";
 
 
 const Menu = () => {
-  const {cartItems, showHideCart} = useContext(CartContext)
+  const {cartItems} = useContext(CartContext)
  
   return (
     <>
