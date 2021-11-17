@@ -15,8 +15,6 @@ const CartState = ({ children }) => {
     dispatch({ type: ADD_TO_CART, payload: item });
   };
 
-  
-
   const removeItems = (id) => {
     dispatch({ type: REMOVE_ITEMS, payload: id });
   };

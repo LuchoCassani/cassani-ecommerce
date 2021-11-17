@@ -2,30 +2,30 @@ import { useContext } from "react";
 import CartContext from "../Context/CartContext";
 
 const CartItem = ({ item }) => {
-  const { removeItems, addToCart, cartItems } = useContext(CartContext);
+  const { removeItems, addToCart, cartItems, removeOneItem } = useContext(CartContext);
 
   return (
     <>
 
     <div className="row m-5 ml-auto">
-      <div className="col-md-6"> 
+      <div className="col-md-6 mt-2"> 
         <img src={item.image} alt={item.title} height="250px" width="250px" />
-        <div>{item.title}</div>
-        <div> $ {item.price}</div>
-        <div>{item.category}</div>
+        <div><strong>{item.title}</strong></div>
+        <div> <strong> Precio:</strong> $ {item.price}</div>
+        <div><strong>Categoria :</strong> {item.category}</div>
+        
       </div>
       
       <div className="col-md-6">
-      
-        <button className="btn btn-outline-dark px-4 py-2 m-2" onClick={() => addToCart(item)}>Agregar al carrito </button>
-
-        
+        <i className="fa fa-plus-square me-1" onClick={() => addToCart(item)}></i>
         <div style={{ marginLeft: 5 }}>
-            {cartItems.reduce((amount, item) => item.price + amount,  0)}
+           $ {item.price * item.quantity}
         </div>      
-        <button className="btn btn-outline-dark px-4 py-2 m-2" onClick={() => removeItems(item.id)}>Remover del carrito</button>    
+        <div> Cantidad : {item.quantity}</div>
+        <i className="fa fa-minus-square me-1" onClick={() => removeOneItem(item.id)}></i>
+    
     </div>
-
+      
     </div>
     </>
   );
