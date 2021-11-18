@@ -28,6 +28,8 @@ const CartReducer = (state, action) => {
           ...state,
           cartItems:state.cartItems.filter((item) => item.id !== action.payload)
         };
+
+        
         case REMOVE_ONE_ITEM:{
           const productDelete = state.cartItems.find(
             (item)=> item.id === action.payload
