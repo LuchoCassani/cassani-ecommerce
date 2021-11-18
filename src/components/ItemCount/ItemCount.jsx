@@ -10,7 +10,7 @@ export const ItemCount = ({ product }) => {
     <>
       <button
         className="btn btn-outline-dark px-4 py-2 m-2"
-        onClick={() => addToCart(product)}
+        onClick={() => addToCart(product.id)}
       >
         Agregar al carrito
       </button>

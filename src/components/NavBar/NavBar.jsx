@@ -27,11 +27,7 @@ const Menu = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <NavLink className="nav-link active" aria-current="page" to="/">
-                  Home
-                </NavLink>
-              </li>
+              
               <li className="nav-item">
                 <NavLink className="nav-link" to="/products">
                   Productos
@@ -40,11 +36,6 @@ const Menu = () => {
               <li className="nav-item">
                 <NavLink className="nav-link" to="/cart">
                   Carrito
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/contact">
-                  Contacto
                 </NavLink>
               </li>
             </ul>

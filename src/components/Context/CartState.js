@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import CartContext from "./CartContext";
 import CartReducer from "./CartReducer";
-import { ADD_TO_CART, REMOVE_ITEMS,REMOVE_ONE_ITEM } from "./Types";
+import { ADD_TO_CART, REMOVE_ITEMS,REMOVE_ONE_ITEM,  } from "./Types";
 
 const CartState = ({ children }) => {
   const initalState = {

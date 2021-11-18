@@ -1,17 +1,12 @@
 import React from "react";
-
-
 import ItemList from "../../components/ItemList/ItemList";
+import SliderPrincipal from "../../components/SliderPrincipal/SliderPrincipal";
 
 export const ItemListContainer = () => {
-
-  
-
   return (
     <>
       <div>
-        <h1 className="d-flex justify-content-center"> HOME </h1>
-
+        <SliderPrincipal />
         <ItemList />
       </div>
     </>
