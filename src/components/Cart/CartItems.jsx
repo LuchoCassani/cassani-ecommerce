@@ -2,8 +2,8 @@ import { useContext } from "react";
 import CartContext from "../Context/CartContext";
 
 const CartItem = ({ item }) => {
-  const { removeItems, addToCart, cartItems, removeOneItem } = useContext(CartContext);
-  
+  const { addToCart, cartItems, removeOneItem } = useContext(CartContext);
+  let total = cartItems.reduce((total, product) => total + product.price * product.quantity, 0)
   return (
     <>
 
@@ -19,7 +19,7 @@ const CartItem = ({ item }) => {
       <div className="col-md-6">
         <i className="fa fa-plus-square me-1" onClick={() => addToCart(item)}></i>
         <div style={{ marginLeft: 5 }}>
-           $ {item.price * item.quantity}
+          $ {total}
         </div>      
         <div> Cantidad : {item.quantity}</div>
         <i className="fa fa-minus-square me-1" onClick={() => removeOneItem(item.id)}></i>

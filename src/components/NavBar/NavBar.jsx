@@ -47,9 +47,8 @@ const Menu = () => {
                 <i className="fa fa-user-plus me-1"></i>Registrarse
               </NavLink>
               <NavLink to="/cart" className="btn btn-outline-dark ms-2 bg-light">
-                          <i className="fa fa-shopping-cart me-1 "> </i>Carrito {cartItems.length > 0 && (
-                            <span>{cartItems.length}</span>
-                          )} 
+                          <i className="fa fa-shopping-cart me-1 "> </i>Carrito {cartItems.reduce((amount, item) => item.quantity + amount, 0)}
+             
                 </NavLink>
             </div>
           </div>
