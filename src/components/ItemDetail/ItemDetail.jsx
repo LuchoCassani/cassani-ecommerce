@@ -1,61 +1,58 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import {ItemCount} from "../ItemCount/ItemCount"
+import { ItemCount } from "../ItemCount/ItemCount";
 import Loader from "../Loader/Loader";
-import { doc, getDoc } from "firebase/firestore"
-import db from "../../firebase/index"
+import { doc, getDoc } from "firebase/firestore";
+import db from "../../firebase/index";
 
 const ItemDetail = () => {
   const [product, setProduct] = useState(null);
-  const { id } = useParams()
+  const { id } = useParams();
   useEffect(() => {
+    const productRef = doc(db, "category", id);
+    getDoc(productRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        setProduct(snapshot.data());
+      }
+    });
+  }, [id]);
 
-     
-       
-      const productRef = doc(db, "category", id);
-       getDoc(productRef).then((snapshot) => {
-         if (snapshot.exists()) {
-           setProduct(snapshot.data());
-         }
-       });
-     }, [id]);
-
-     return (
-       <>
+  return (
+    <>
       <ul>
-        
         {product && (
           <>
-          <div className="col-md-6">
-          <img
-            src={product.imagen}
-            alt={product.title}
-            height="400px"
-            width="400px"
-          />
-        </div>
-        <div className="col-md-6">
-          <h4 className="text-uppercase text-black-50">{product.category}</h4>
-          <h1 className="display-5">{product.title}</h1>
-          <p className="lead fw-bolder">
-            Rating
-            <i className="fa fa-star"></i>
-            <i className="fa fa-star"></i>
-            <i className="fa fa-star"></i>
-            <i className="fa fa-star"></i>
-            <i className="fa fa-star"></i>
-          </p>
-          <h3 className>$ {product.precio}</h3>
-          <p className="lead">{product.descripcion}</p>
+            <div className="col-md-6">
+              <img
+                src={product.imagen}
+                alt={product.title}
+                height="400px"
+                width="400px"
+              />
+            </div>
+            <div className="col-md-6">
+              <h4 className="text-uppercase text-black-50">
+                {product.category}
+              </h4>
+              <h1 className="display-5">{product.title}</h1>
+              <p className="lead fw-bolder">
+                Rating
+                <i className="fa fa-star"></i>
+                <i className="fa fa-star"></i>
+                <i className="fa fa-star"></i>
+                <i className="fa fa-star"></i>
+                <i className="fa fa-star"></i>
+              </p>
+              <h3 className>$ {product.precio}</h3>
+              <p className="lead">{product.descripcion}</p>
 
-          <ItemCount product={product} />
-      
-        </div>
-        </>)}
-        
+              <ItemCount product={product} />
+            </div>
+          </>
+        )}
       </ul>
-      </>
-    );
+    </>
+  );
 
   /* const { id } = useParams();
   const [product, setProducto] = useState(null);

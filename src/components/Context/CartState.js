@@ -13,6 +13,7 @@ const CartState = ({ children }) => {
 
   const addToCart = (item) => {
     dispatch({ type: ADD_TO_CART, payload: item });
+    
   };
 
   const removeItems = (id) => {
