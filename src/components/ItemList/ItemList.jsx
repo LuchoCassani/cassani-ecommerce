@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import {  NavLink} from 'react-router-dom';
 import Loader from "../Loader/Loader";
 import ShowProducts from "../ShowProducts/ShowProducts";
+
 
 
 export default function ItemList(product) {

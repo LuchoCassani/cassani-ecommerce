@@ -28,7 +28,7 @@ const Cart = ({ product }) => {
                 </ul>
                 <h2>
                   TOTAL{" "}
-                  {cartItems.reduce((amount, item) => item.price * item.quantity + amount, 0)}
+                  {cartItems.reduce((amount, item) => item.precio * item.quantity + amount, 0)}
                   
                 </h2>
                 <button

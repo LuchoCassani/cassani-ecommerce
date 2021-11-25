@@ -3,16 +3,16 @@ import CartContext from "../Context/CartContext";
 
 const CartItem = ({ item }) => {
   const { addToCart, cartItems, removeOneItem } = useContext(CartContext);
-  let total = cartItems.reduce((total, product) => total + product.price * product.quantity, 0)
+  let total = cartItems.reduce((total, product) => total + product.precio * product.quantity, 0)
   return (
     <>
 
     <div className="row m-5 ml-auto">
       <div className="col-md-6 mt-2"> 
-        <img src={item.image} alt={item.title} height="250px" width="250px" />
+        <img src={item.imagen} alt={item.title} height="250px" width="250px" />
         <div><strong>{item.title}</strong></div>
-        <div> <strong> Precio:</strong> $ {item.price}</div>
-        <div><strong>Categoria :</strong> {item.category}</div>
+        <div> <strong> Precio:</strong> $ {item.precio}</div>
+        <div><strong>Categoria :</strong> {item.categoria}</div>
         
       </div>
       
