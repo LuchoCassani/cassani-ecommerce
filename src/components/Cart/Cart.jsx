@@ -3,6 +3,8 @@ import CartContext from "../Context/CartContext";
 import { NavLink } from "react-router-dom";
 import CartItems from "./CartItems";
 
+
+
 const Cart = ({ product }) => {
   const { showCart, cartItems } = useContext(CartContext);
   const { removeItems } = useContext(CartContext);
@@ -27,19 +29,19 @@ const Cart = ({ product }) => {
                   ))}
                 </ul>
                 <h2>
-                  TOTAL{" "}
+                  TOTAL ${" "}
                   {cartItems.reduce((amount, product) => product.precio * product.quantity + amount, 0)}
                   
                 </h2>
                 <button
                   className="btn btn-outline-dark px-4 py-2 m-2"
-                  onClick={() => removeItems(product.id)}
+                  onClick={() => removeItems(product)}
                 >
                   Limpiar carrito
                 </button>
-                <button className="btn btn-outline-dark px-4 py-2 m-2">
+                <NavLink to="/checkout" className="btn btn-outline-dark px-4 py-2 m-2">
                   Finalizar compra
-                </button>
+                </NavLink>
               </>
             )}
           </div>

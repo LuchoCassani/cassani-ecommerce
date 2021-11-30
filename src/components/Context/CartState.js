@@ -7,7 +7,7 @@ const CartState = ({ children }) => {
   const initalState = {
     
     cartItems: [],
-  };console.log(initalState)
+  };
 
   const [state, dispatch] = useReducer(CartReducer, initalState);
 

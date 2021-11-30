@@ -22,7 +22,7 @@ export const ItemCount = ({ product }) => {
       </button>
       <button
         className="btn btn-outline-dark px-4 py-2 m-2"
-        onClick={() => removeItems(product.id)}
+        onClick={() => removeItems(product)}
       >
         Vaciar carrito
       </button>

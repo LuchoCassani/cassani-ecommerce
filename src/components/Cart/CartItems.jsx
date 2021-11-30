@@ -2,8 +2,8 @@ import { useContext } from "react";
 import CartContext from "../Context/CartContext";
 
 const CartItem = ({ item }) => {
-  const { addToCart, cartItems, removeOneItem } = useContext(CartContext);
-  let total = cartItems.reduce((total, item) => total + item.precio * item.quantity, 0)
+  const { addToCart,removeOneItem } = useContext(CartContext);
+  let total = item.precio * item.quantity
   return (
     <>
 
