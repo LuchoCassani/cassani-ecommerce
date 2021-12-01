@@ -29,7 +29,7 @@ export default function ItemList(product) {
           </div>
         </div>
         <div className="row justify-content-center">
-          {loading ? <Loader /> : <ShowProducts  />}
+          {loading ? <Loader text={"Cargando productos"}/> : <ShowProducts  />}
         </div>
       </div>
     </div>

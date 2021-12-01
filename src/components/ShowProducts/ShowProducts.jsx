@@ -32,6 +32,7 @@ const ShowProducts = (product) => {
   const filterProduct = (categoria) => {
     const updatedList = products.filter((x) => x.categoria === categoria)
     setFilter(updatedList)
+    setData(product)
   } 
 
 
