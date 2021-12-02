@@ -1,10 +1,10 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, doc, setDoc } from "firebase/firestore";
 import db from "../../firebase/index";
 import CartContext from "../Context/CartContext";
 import Loader from "../Loader/Loader";
-import BuyerForm from "./BuyerForm";
+import { useParams } from "react-router";
 
 
 
@@ -12,6 +12,7 @@ const Checkout = () => {
   const { cartItems, removeItems } = useContext(CartContext);
   const [confirm, setConfirm] = useState(false);
   const [orderNumber, setOrderNumber] = useState(null);
+  const { id } = useParams();
 
   const date = new Date()
   
@@ -26,6 +27,7 @@ const Checkout = () => {
     phone: 0,
     email: "",
   });
+  
   
   const setData = (e) => {
     setClientData({
@@ -48,6 +50,7 @@ const Checkout = () => {
   };
 
   const generatedOrder = () => {
+    
     
 
     const ordersCollections = collection(db, "orders");
@@ -87,18 +90,18 @@ const Checkout = () => {
             0
           )}
         </h2>
-        <form id="form" action="" method="post" onSubmit={handleSubmit} >
+        <form id="form" action="" method="post" onSubmit={handleSubmit}  >
                     <h3 className="d-flex justify-content-center p-1 ">
                         Ingresa tus datos para finalizar la compra
                     </h3>
 
                     <div >
                       
-                         {form.map(key =><input type={key.type} placeholder={key.placeHolder} name={key.name} key={key.name} onChange={setData} required/>)} 
+                         {form.map(key =><input  type={key.type} placeholder={key.placeHolder} name={key.name} key={key.name} onChange={setData} required/>)} 
                     </div>
                    
                     <div >
-                            {confirm? <div/> : <div className="btn btn-outline-dark px-4 py-2 m-2" onClick={generatedOrder}>Finalizar Pedido</div>}
+                            {confirm? <div/> : <button  className="btn btn-outline-dark px-4 py-2 m-2" onClick={generatedOrder}>Finalizar Pedido</button>}
                             
                     </div>
                 </form>      
