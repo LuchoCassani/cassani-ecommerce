@@ -101,7 +101,7 @@ const Checkout = () => {
                     </div>
                    
                     <div >
-                            {confirm? <div/> : <button  className="btn btn-outline-dark px-4 py-2 m-2" onClick={generatedOrder}>Finalizar Pedido</button>}
+                            {confirm? <div/> : <button  className="btn btn-outline-dark px-4 py-2 m-2" onSubmit={generatedOrder}>Finalizar Pedido</button>}
                             
                     </div>
                 </form>      

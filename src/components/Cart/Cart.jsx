@@ -6,8 +6,8 @@ import CartItems from "./CartItems";
 
 
 const Cart = ({ product }) => {
-  const { showCart, cartItems } = useContext(CartContext);
-  const { removeItems } = useContext(CartContext);
+  const { showCart, cartItems, removeItems } = useContext(CartContext);
+
 
   return (
     <>
