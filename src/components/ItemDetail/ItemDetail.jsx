@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { ItemCount } from "../ItemCount/ItemCount";
-import Loader from "../Loader/Loader";
 import { doc, getDoc } from "firebase/firestore";
 import db from "../../firebase/index";
 

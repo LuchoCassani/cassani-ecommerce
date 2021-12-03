@@ -9,6 +9,7 @@ import ItemDetailContainer from "./containers/ItemDetailContainer/ItemDetailCont
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
 
+
 function App() {
   return (
     <>
@@ -20,6 +21,7 @@ function App() {
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/checkout" component={Checkout} />
       </Switch>
+     
     </>
   );
 }

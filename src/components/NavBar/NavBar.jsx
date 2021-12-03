@@ -26,7 +26,7 @@ const Menu = () => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav m-auto mb-2 mb-lg-0">
               
               <li className="nav-item">
                 <NavLink className="nav-link" to="/products">
@@ -46,7 +46,7 @@ const Menu = () => {
               <NavLink to="" className="btn btn-outline-dark ms-2">
                 <i className="fa fa-user-plus me-1"></i>Registrarse
               </NavLink>
-              <NavLink to="/cart" className="btn btn-outline-dark ms-2 bg-light">
+              <NavLink to="/cart" className="btn btn-outline-dark ms-2 ">
                           <i className="fa fa-shopping-cart me-1 "> </i>Carrito {cartItems.reduce((amount, item) => item.quantity + amount, 0)}
              
                 </NavLink>

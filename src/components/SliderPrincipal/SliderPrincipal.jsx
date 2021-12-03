@@ -1,6 +1,5 @@
 import React from 'react';
 import "../../sass/SliderPrincipal.scss"
-import { Container } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel'
 
 

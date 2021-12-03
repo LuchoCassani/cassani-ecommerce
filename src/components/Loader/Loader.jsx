@@ -1,5 +1,5 @@
 import React from 'react'
-import Puff from "react-loading-icons/dist/components/puff";
+import LoadingIcons from 'react-loading-icons';
 
 function Loader({text}) {
   
@@ -10,7 +10,7 @@ function Loader({text}) {
         <div className="d-flex justify-content-center">
             
             <h3>{text}</h3>
-            <Puff stroke="#98ff98" strokeOpacity={0.125} speed={0.75} />
+            <LoadingIcons.Puff stroke="#1f491f" strokeOpacity={0.125} speed={0.75} />
             
        
         </div>

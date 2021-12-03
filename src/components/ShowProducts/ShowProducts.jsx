@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { collection, getDocs, query } from "firebase/firestore";
 import db from "../../firebase/index";
+import "../../sass/PresentacionItem.scss"
 
 const ShowProducts = (product) => {
   const [products, setProducts] = useState(null);
@@ -15,8 +16,9 @@ const ShowProducts = (product) => {
         snapshot.docs.map((doc) => {
           const newDoc = { ...doc.data(), id: doc.id };
           return newDoc;
+          
         })
-      );
+      ); 
     });
   }, []);
 
@@ -60,8 +62,8 @@ const ShowProducts = (product) => {
       {filter.map((product) => {
         return (
           <>
-            <div key={product.id} className="col-md-3 mb-4">
-              <div className="card h-100 text-center p-4" key={product.id}>
+            <div key={product.id} className=" col-md-3 mb-4">
+              <div className="cards h-100 text-center " key={product.id}>
                 <img
                   src={product.imagen}
                   className="card-img-top"

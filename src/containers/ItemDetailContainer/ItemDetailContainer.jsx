@@ -4,9 +4,6 @@ import ItemDetail from '../../components/ItemDetail/ItemDetail';
 
 function ItemDetailConteiner() {
 
-
-
-   
     return (
         <div>
           <div className="container py-5">
